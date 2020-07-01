@@ -221,5 +221,5 @@ function footer() {
 
         }
     echo "</ul>";
-    echo "FOOTER";
+    
 }
