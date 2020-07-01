@@ -1,0 +1,14 @@
+.add-more{
+    color: green;
+    cursor: pointer;
+}
+.delete{
+    color: red;
+    cursor: pointer;
+}
+#template{
+    display: none;
+}
+.link-block{
+    margin-bottom: 30px;
+}
