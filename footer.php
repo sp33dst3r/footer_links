@@ -20,7 +20,7 @@ function delete_action_function(){
     if($id){
         $wpdb->query( $wpdb->prepare( 
             "
-                DELETE FROM `wp_pf_parts`  WHERE id = %d
+                DELETE FROM ".$wpdb->prefix . 'pf_parts'."  WHERE id = %d
                
             ", 
             $id) );
@@ -51,7 +51,7 @@ function add_action_function(){
     if(isset($_POST["record-id"]) && (int)$_POST["record-id"] > 0){
         $res = $wpdb->query( $wpdb->prepare( 
             "
-                UPDATE `wp_pf_parts` set
+                UPDATE ".$wpdb->prefix . 'pf_parts'." set
                  post_id = %d, link =  %s
                 WHERE id = %d
             ", 
@@ -60,7 +60,7 @@ function add_action_function(){
     }else{
         $wpdb->query( $wpdb->prepare( 
             "
-                INSERT INTO `wp_pf_parts`
+                INSERT INTO ".$wpdb->prefix . 'pf_parts'."
                 ( post_id, link )
                 VALUES ( %d, %s )
             ", 
@@ -83,7 +83,7 @@ function getAvailableAnchors()
     global $wpdb;
     $anchors = $wpdb->get_results(  
         "
-            SELECT id, post_id, link FROM wp_pf_parts
+            SELECT id, post_id, link FROM ".$wpdb->prefix . 'pf_parts'."
         ") ;
 
         return $anchors;
@@ -221,5 +221,4 @@ function footer() {
 
         }
     echo "</ul>";
-    echo "FOOTER";
 }
